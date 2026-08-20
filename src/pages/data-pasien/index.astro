@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { DataPasienList } from '../../components/history/DataPasienList';
+---
+
+<BaseLayout
+  title="Data Pasien & Riwayat Triase — TC-START Prehospital"
+  description="Daftar rekam medis triase lapangan korban PSC 119 dengan filter nama dan tanggal kejadian."
+>
+  <DataPasienList client:load />
+</BaseLayout>

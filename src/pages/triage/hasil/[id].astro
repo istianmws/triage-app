@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { HasilTriageView } from '../../../components/results/HasilTriageView';
+
+const { id } = Astro.params;
+---
+
+<BaseLayout
+  title="Hasil Triase & Serah Terima — TC-START Prehospital"
+  description="Lembar hasil klasifikasi triase lapangan dan ringkasan serah terima medis RS Rujukan."
+>
+  <HasilTriageView client:load recordId={id} />
+</BaseLayout>
+

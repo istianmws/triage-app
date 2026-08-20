@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Tentang Aplikasi TC-START Prehospital"
+  description="Informasi ilmiah mengenai metode START Triage dan pendekatan Transcultural Nursing untuk layanan prehospital PSC 119."
+>
+  <div class="max-w-4xl mx-auto space-y-8 pb-16">
+    <!-- Header -->
+    <div class="border-b border-slate-200 pb-5">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 text-red-700 text-xs font-bold uppercase tracking-wider mb-2">
+        Pedoman Klinis & Standar Operasional
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+        Tentang TC-START Prehospital
+      </h1>
+      <p class="text-sm sm:text-base text-slate-600 mt-1">
+        Transcultural Nursing – Simple Triage And Rapid Treatment untuk Layanan Darurat Medis Prehospital PSC 119
+      </p>
+    </div>
+
+    <!-- Section 1: Ringkasan Produk -->
+    <div class="bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-8 shadow-sm space-y-4">
+      <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+        <span class="w-3 h-3 rounded-full bg-red-600"></span>
+        1. Apa itu TC-START?
+      </h2>
+      <p class="text-sm text-slate-700 leading-relaxed">
+        <strong>TC-START (Transcultural Nursing – START Triage)</strong> adalah sistem triase lapangan berbasis web yang dioptimalkan untuk perangkat mobile (termasuk embed WebView Android pada aplikasi petugas PSC 119) serta komputer desktop di Rumah Sakit Rujukan.
+      </p>
+      <p class="text-sm text-slate-700 leading-relaxed">
+        Sistem ini menggabungkan kecepatan algoritma baku <strong>START (Simple Triage And Rapid Treatment)</strong> internasional yang membagi korban ke dalam 4 kategori prioritas warna dengan <strong>Transcultural Nursing</strong> (keperawatan lintas budaya) untuk memastikan komunikasi terapeutik, penghormatan nilai sosial-budaya, privasi gender, dan keterlibatan keluarga dalam kondisi krisis gawat darurat.
+      </p>
+    </div>
+
+    <!-- Section 2: Flowchart Algoritma Resmi -->
+    <div class="bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-8 shadow-sm space-y-6">
+      <div>
+        <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-red-600"></span>
+          2. Algoritma Keputusan START (Flowchart)
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-0.5">
+          Sumber kebenaran resmi: Kartu Referensi ALGORITMA TC-START Prehospital
+        </p>
+      </div>
+
+      <div class="space-y-4 text-xs sm:text-sm font-mono bg-slate-900 text-slate-100 p-6 rounded-2xl overflow-x-auto">
+        <div class="text-emerald-400 font-bold">
+          [STEP 1] DAPAT BERJALAN? (Instruksi: "Silakan berjalan ke arah saya")
+        </div>
+        <div class="pl-4 border-l-2 border-slate-700 space-y-1">
+          <div>├─ <span class="text-emerald-400 font-bold">YA</span> &rarr; 🟢 <strong class="text-emerald-300">HIJAU / MINOR (Prioritas 3)</strong> [SELESAI]</div>
+          <div>└─ <span class="text-red-400 font-bold">TIDAK</span> &rarr; Lanjut ke STEP 2</div>
+        </div>
+
+        <div class="text-amber-400 font-bold pt-2">
+          [STEP 2] BERNAPAS?
+        </div>
+        <div class="pl-4 border-l-2 border-slate-700 space-y-1">
+          <div>├─ <span class="text-emerald-400 font-bold">YA</span> &rarr; Hitung Laju Pernapasan (RR) 15 detik:</div>
+          <div class="pl-4">│  ├─ <span class="text-red-400 font-bold">RR &gt; 30x/m</span> &rarr; 🔴 <strong class="text-red-300">MERAH / IMMEDIATE (Prioritas 1)</strong> [SELESAI]</div>
+          <div class="pl-4">│  └─ <span class="text-emerald-400 font-bold">RR ≤ 30x/m</span> &rarr; Lanjut ke STEP 3</div>
+          <div>└─ <span class="text-red-400 font-bold">TIDAK</span> &rarr; Buka Jalan Napas (Head tilt-chin lift):</div>
+          <div class="pl-4">   ├─ <span class="text-red-400 font-bold">TETAP TIDAK</span> &rarr; ⚫ <strong class="text-slate-300">HITAM / EXPECTANT (Prioritas 4)</strong> [SELESAI]</div>
+          <div class="pl-4">   └─ <span class="text-emerald-400 font-bold">MULAI BERNAPAS</span> &rarr; 🔴 <strong class="text-red-300">MERAH / IMMEDIATE (Prioritas 1)</strong> [SELESAI]</div>
+        </div>
+
+        <div class="text-blue-400 font-bold pt-2">
+          [STEP 3] PERFUSI (Nadi Radial & CRT)
+        </div>
+        <div class="pl-4 border-l-2 border-slate-700 space-y-1">
+          <div>├─ <span class="text-red-400 font-bold">TIDAK ADEKUAT</span> (Nadi tidak teraba ATAU CRT &gt; 2s) &rarr; 🔴 <strong class="text-red-300">MERAH (Prioritas 1)</strong> [SELESAI]</div>
+          <div>└─ <span class="text-emerald-400 font-bold">ADEKUAT</span> (Nadi teraba DAN CRT ≤ 2s) &rarr; Lanjut ke STEP 4</div>
+        </div>
+
+        <div class="text-purple-400 font-bold pt-2">
+          [STEP 4] STATUS MENTAL (Skala AVPU: Alert / Verbal / Pain / Unresponsive)
+        </div>
+        <div class="pl-4 border-l-2 border-slate-700 space-y-1">
+          <div>├─ <span class="text-red-400 font-bold">TIDAK (P atau U)</span> &rarr; 🔴 <strong class="text-red-300">MERAH / IMMEDIATE (Prioritas 1)</strong> [SELESAI]</div>
+          <div>└─ <span class="text-emerald-400 font-bold">YA (A atau V)</span> &rarr; 🟡 <strong class="text-amber-300">KUNING / DELAYED (Prioritas 2)</strong> [SELESAI]</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: Tabel Kriteria Triase -->
+    <div class="bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-8 shadow-sm space-y-4">
+      <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+        <span class="w-3 h-3 rounded-full bg-red-600"></span>
+        3. Tabel Kriteria & Prioritas Triase
+      </h2>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs sm:text-sm border-collapse">
+          <thead>
+            <tr class="border-b-2 border-slate-200 bg-slate-50 text-slate-700">
+              <th class="p-3 font-bold">Kategori Warna</th>
+              <th class="p-3 font-bold">Prioritas</th>
+              <th class="p-3 font-bold">Kriteria Klinis Kunci</th>
+              <th class="p-3 font-bold">Tindakan Prehospital</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            <tr class="hover:bg-red-50/50">
+              <td class="p-3 font-black text-red-700">🔴 MERAH (Immediate)</td>
+              <td class="p-3 font-bold">1 — Segera</td>
+              <td class="p-3 text-slate-700">Tidak mampu berjalan; RR &gt; 30; Nadi tidak teraba/CRT &gt; 2s; atau status mental P/U.</td>
+              <td class="p-3 text-slate-700">Evakuasi & stabilisasi SEGERA ke RS Rujukan.</td>
+            </tr>
+            <tr class="hover:bg-amber-50/50">
+              <td class="p-3 font-black text-amber-700">🟡 KUNING (Delayed)</td>
+              <td class="p-3 font-bold">2 — Tertunda</td>
+              <td class="p-3 text-slate-700">Tidak berjalan namun RR ≤ 30, perfusi adekuat, sadar (A/V).</td>
+              <td class="p-3 text-slate-700">Perawatan dapat ditunda, observasi berkala.</td>
+            </tr>
+            <tr class="hover:bg-emerald-50/50">
+              <td class="p-3 font-black text-emerald-700">🟢 HIJAU (Minor)</td>
+              <td class="p-3 font-bold">3 — Ringan</td>
+              <td class="p-3 text-slate-700">Dapat berjalan mandiri, tanda vital stabil, luka ringan.</td>
+              <td class="p-3 text-slate-700">Pertolongan pertama di titik kumpul aman.</td>
+            </tr>
+            <tr class="hover:bg-slate-100">
+              <td class="p-3 font-black text-slate-900">⚫ HITAM (Expectant)</td>
+              <td class="p-3 font-bold">4 — Meninggal</td>
+              <td class="p-3 text-slate-700">Tidak bernapas meski jalan napas telah dimanipulasi.</td>
+              <td class="p-3 text-slate-700">Kantong jenazah, hormati nilai kultural keluarga.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Section 4: Kontak Darurat -->
+    <div class="bg-gradient-to-r from-red-600 to-rose-700 text-white rounded-3xl p-6 sm:p-8 shadow-xl space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <span class="text-xs uppercase font-bold tracking-widest text-red-200">PUSAT KOMANDO DARURAT</span>
+          <h3 class="text-2xl sm:text-3xl font-black">PSC 119 Layanan Medis Darurat</h3>
+          <p class="text-xs sm:text-sm text-red-100 mt-1">
+            Siaga 24 Jam melayani kegawatdaruratan medis, kecelakaan lalu lintas, dan bencana.
+          </p>
+        </div>
+        <div class="bg-white text-red-700 px-6 py-3.5 rounded-2xl font-black text-xl text-center shadow-md">
+          📞 119
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

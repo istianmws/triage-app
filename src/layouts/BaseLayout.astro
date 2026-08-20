@@ -1,0 +1,201 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'TC-START Prehospital — Triage PSC 119',
+  description = 'Sistem Triase Lapangan Prehospital Cepat dengan Pendekatan Transcultural Nursing untuk Petugas PSC 119 & Paramedis.',
+} = Astro.props;
+
+const pathname = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#DC2626" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col selection:bg-red-500 selection:text-white pb-20 sm:pb-0">
+    {/* Navigation Header */}
+    <header class="no-print sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+        <!-- Logo & Branding -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-red-600 to-rose-500 text-white flex items-center justify-center font-black text-lg tracking-tight shadow-md shadow-red-500/25 group-hover:scale-105 transition">
+            119
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-base font-extrabold text-slate-900 tracking-tight leading-none group-hover:text-red-600 transition">
+                TC-START
+              </span>
+              <span class="px-1.5 py-0.2 text-[10px] font-black uppercase rounded bg-red-100 text-red-700 tracking-wider">
+                PSC 119
+              </span>
+            </div>
+            <span class="text-[11px] font-medium text-slate-500 block">Prehospital Triage System</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-1">
+          <a
+            href="/"
+            class={`px-3.5 py-2 rounded-xl text-xs font-bold transition ${
+              pathname === '/'
+                ? 'bg-red-50 text-red-700'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+            }`}
+          >
+            Beranda
+          </a>
+          <a
+            href="/triage/input"
+            class={`px-3.5 py-2 rounded-xl text-xs font-bold transition ${
+              pathname.startsWith('/triage/input')
+                ? 'bg-red-600 text-white shadow-sm'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+            }`}
+          >
+            Mulai Triage
+          </a>
+          <a
+            href="/data-pasien"
+            class={`px-3.5 py-2 rounded-xl text-xs font-bold transition ${
+              pathname.startsWith('/data-pasien')
+                ? 'bg-red-50 text-red-700'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+            }`}
+          >
+            Data Pasien
+          </a>
+          <a
+            href="/pengaturan"
+            class={`px-3.5 py-2 rounded-xl text-xs font-bold transition ${
+              pathname.startsWith('/pengaturan')
+                ? 'bg-red-50 text-red-700'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+            }`}
+          >
+            Pengaturan
+          </a>
+          <a
+            href="/tentang"
+            class={`px-3.5 py-2 rounded-xl text-xs font-bold transition ${
+              pathname.startsWith('/tentang')
+                ? 'bg-red-50 text-red-700'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+            }`}
+          >
+            Tentang
+          </a>
+        </nav>
+
+        <!-- Right Quick Action / Emergency hotline badge -->
+        <div class="flex items-center gap-2">
+          <a
+            href="/triage/input"
+            class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-xl font-extrabold text-xs text-white bg-red-600 hover:bg-red-700 active:scale-95 shadow-md shadow-red-500/25 transition"
+          >
+            + Triage Pasien
+          </a>
+          <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 text-slate-800 text-xs font-bold border border-slate-200">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>PSC Siaga</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Body -->
+    <main class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 pt-6 sm:pt-8">
+      <slot />
+    </main>
+
+    <!-- Footer (Desktop) -->
+    <footer class="no-print mt-auto border-t border-slate-200/80 bg-white py-6 hidden sm:block">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div class="flex items-center gap-2">
+          <strong class="text-slate-800 font-black">TC-START Prehospital</strong>
+          <span>&bull; Layanan Darurat Medis & Triase Cepat Lapangan PSC 119</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="/tentang" class="hover:text-red-600">Pedoman Algoritma</a>
+          <a href="/pengaturan" class="hover:text-red-600">Pengaturan</a>
+          <span class="font-mono text-slate-400">v0.2 MVP</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Mobile Bottom Navigation Bar (Optimized for Android WebView / One-Thumb Use) -->
+    <div class="no-print sm:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-slate-200 px-3 py-2 flex items-center justify-around shadow-lg">
+      <a
+        href="/"
+        class={`flex flex-col items-center gap-1 py-1 px-3 rounded-xl text-[10px] font-bold ${
+          pathname === '/' ? 'text-red-600' : 'text-slate-500'
+        }`}
+      >
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>
+        <span>Beranda</span>
+      </a>
+
+      <a
+        href="/triage/input"
+        class="flex flex-col items-center -mt-5"
+      >
+        <div class="w-13 h-13 rounded-full bg-red-600 text-white flex items-center justify-center shadow-lg shadow-red-600/40 ring-4 ring-white active:scale-95 transition">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
+          </svg>
+        </div>
+        <span class="text-[10px] font-black text-red-600 mt-1">Triage</span>
+      </a>
+
+      <a
+        href="/data-pasien"
+        class={`flex flex-col items-center gap-1 py-1 px-3 rounded-xl text-[10px] font-bold ${
+          pathname.startsWith('/data-pasien') ? 'text-red-600' : 'text-slate-500'
+        }`}
+      >
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+        <span>Riwayat</span>
+      </a>
+
+      <a
+        href="/pengaturan"
+        class={`flex flex-col items-center gap-1 py-1 px-3 rounded-xl text-[10px] font-bold ${
+          pathname.startsWith('/pengaturan') ? 'text-red-600' : 'text-slate-500'
+        }`}
+      >
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+        <span>Setelan</span>
+      </a>
+    </div>
+  </body>
+</html>

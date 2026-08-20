@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { HasilTriageView } from '../../../components/results/HasilTriageView';
+---
+
+<BaseLayout
+  title="Hasil Triase — TC-START Prehospital"
+  description="Lembar hasil klasifikasi triase lapangan dan ringkasan serah terima medis RS Rujukan."
+>
+  <HasilTriageView client:load />
+</BaseLayout>

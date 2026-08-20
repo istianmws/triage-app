@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SettingsView } from '../components/settings/SettingsView';
+---
+
+<BaseLayout
+  title="Pengaturan Sistem — TC-START Prehospital"
+  description="Konfigurasi nama petugas default, unit PSC 119, dan manajemen data triase."
+>
+  <SettingsView client:load />
+</BaseLayout>
