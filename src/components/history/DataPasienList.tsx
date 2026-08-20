@@ -15,7 +15,9 @@ import {
   RefreshCw,
   User,
   HeartPulse,
+  FileSpreadsheet,
 } from 'lucide-react';
+import { exportTriageToExcel } from '../../lib/triage-excel';
 
 export const DataPasienList: React.FC = () => {
   const [records, setRecords] = useState<TriageRecord[]>(() => getTriageRecords());
@@ -34,6 +36,14 @@ export const DataPasienList: React.FC = () => {
     });
     setRecords(data);
   }, [searchQuery, selectedKategori, dariTanggal, sampaiTanggal]);
+
+  const handleExportExcel = () => {
+    if (records.length === 0) {
+      alert('Tidak ada data pasien yang sesuai untuk diekspor.');
+      return;
+    }
+    exportTriageToExcel(records);
+  };
 
   const handleResetFilter = () => {
     setSearchQuery('');
@@ -67,9 +77,17 @@ export const DataPasienList: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={handleExportExcel}
+            className="inline-flex items-center gap-2 px-4 py-3 rounded-2xl font-bold text-slate-800 bg-white hover:bg-slate-50 border border-slate-200 shadow-sm transition text-xs sm:text-sm active:scale-95"
+            title="Ekspor daftar ini ke file Excel (.xlsx)"
+          >
+            <FileSpreadsheet className="w-4 h-4 text-emerald-600" /> Ekspor Excel
+          </button>
           <a
             href="/triage/input"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl font-extrabold text-white bg-red-600 hover:bg-red-700 active:scale-95 shadow-lg shadow-red-500/25 transition text-sm"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl font-extrabold text-white bg-red-600 hover:bg-red-700 active:scale-95 shadow-lg shadow-red-500/25 transition text-xs sm:text-sm"
           >
             <Plus className="w-4 h-4" /> Triage Pasien Baru
           </a>

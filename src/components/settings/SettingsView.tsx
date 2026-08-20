@@ -6,7 +6,8 @@ import {
   setSavedUnitName,
   getTriageRecords,
 } from '../../lib/triage-storage';
-import { Settings, Save, Trash2, Download, CheckCircle2, Shield, PhoneCall } from 'lucide-react';
+import { Settings, Save, Trash2, Download, CheckCircle2, Shield, PhoneCall, FileSpreadsheet } from 'lucide-react';
+import { exportTriageToExcel } from '../../lib/triage-excel';
 
 export const SettingsView: React.FC = () => {
   const [officerName, setOfficerName] = useState('');
@@ -26,6 +27,15 @@ export const SettingsView: React.FC = () => {
     setSavedUnitName(unitName);
     setSavedSuccess(true);
     setTimeout(() => setSavedSuccess(false), 2500);
+  };
+
+  const handleExportExcel = () => {
+    const data = getTriageRecords();
+    if (data.length === 0) {
+      alert('Tidak ada data triase untuk diekspor.');
+      return;
+    }
+    exportTriageToExcel(data);
   };
 
   const handleExportJSON = () => {
@@ -120,10 +130,18 @@ export const SettingsView: React.FC = () => {
         </h2>
 
         <p className="text-xs sm:text-sm text-slate-600">
-          Semua data tersimpan secara lokal dan aman di browser/WebView perangkat Anda. Anda dapat mengunduh salinan cadangan dalam format JSON.
+          Semua data tersimpan secara lokal dan aman di browser/WebView perangkat Anda. Anda dapat mengunduh salinan laporan dalam format Excel (.xlsx) atau cadangan JSON.
         </p>
 
         <div className="flex flex-wrap items-center gap-3 pt-2">
+          <button
+            type="button"
+            onClick={handleExportExcel}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-md shadow-emerald-600/20 transition active:scale-95"
+          >
+            <FileSpreadsheet className="w-4 h-4" /> Ekspor ke Excel (.xlsx)
+          </button>
+
           <button
             type="button"
             onClick={handleExportJSON}
