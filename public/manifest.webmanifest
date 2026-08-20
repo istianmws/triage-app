@@ -1,0 +1,23 @@
+{
+  "name": "TC-START Prehospital — Triage PSC 119",
+  "short_name": "TC-START",
+  "description": "Sistem Triase Lapangan Prehospital Cepat dengan Pendekatan Transcultural Nursing untuk Petugas PSC 119.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F8FAFC",
+  "theme_color": "#DC2626",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
